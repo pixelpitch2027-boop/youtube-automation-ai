@@ -1,0 +1,129 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>YouTube Automation AI</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#101525;color:#fff;font-family:Arial,sans-serif;padding:20px}
+header{text-align:center;padding:20px 0}
+header h1{color:#65a7ff}
+.card{background:#1c263b;padding:18px;border-radius:14px;margin:16px 0}
+label{display:block;margin:14px 0 7px}
+input,select,textarea{width:100%;padding:13px;border:1px solid #46536c;border-radius:9px;background:#101a2c;color:white;font-size:16px}
+textarea{min-height:90px}
+button{background:#397cf6;color:white;border:0;padding:13px 18px;border-radius:9px;font-size:16px;margin-top:12px;width:100%}
+.result{white-space:pre-wrap;overflow-wrap:anywhere;background:#101a2c;padding:12px;border-radius:9px;min-height:45px}
+small{color:#aab8d0}
+</style>
+</head>
+<body>
+<header>
+<h1>🚀 YouTube Automation AI</h1>
+<p>One Assistant • All Your Channels</p>
+</header>
+
+<div class="card">
+<h3>🎬 Channel Settings</h3>
+<label>Select Channel</label>
+<select id="channel">
+<option>TOTO FUN</option>
+<option>BabyVerse</option>
+<option>ToonVerse</option>
+<option>Other Channel</option>
+</select>
+
+<label>Video Topic</label>
+<input id="topic" placeholder="Enter your video topic">
+
+<label>Video Type</label>
+<select id="type">
+<option>YouTube Shorts</option>
+<option>Long Video</option>
+<option>Reaction Video</option>
+<option>AI Baby Video</option>
+</select>
+
+<label>Target Audience</label>
+<select id="audience">
+<option>USA / International</option>
+<option>Bangladesh</option>
+<option>Worldwide</option>
+</select>
+
+<button onclick="generate()">✨ Generate YouTube SEO Pack</button>
+</div>
+
+<div class="card">
+<h3>📌 Generated Results</h3>
+<label>Title</label>
+<div class="result" id="title">Your title will appear here.</div>
+<button onclick="copyText('title')">Copy Title</button>
+
+<label>Description</label>
+<div class="result" id="description">Your description will appear here.</div>
+<button onclick="copyText('description')">Copy Description</button>
+
+<label>Tags</label>
+<div class="result" id="tags">Your tags will appear here.</div>
+<button onclick="copyText('tags')">Copy Tags</button>
+
+<label>Hashtags</label>
+<div class="result" id="hashtags">Your hashtags will appear here.</div>
+<button onclick="copyText('hashtags')">Copy Hashtags</button>
+
+<label>Master Keywords</label>
+<div class="result" id="keywords">Your keywords will appear here.</div>
+<button onclick="copyText('keywords')">Copy Keywords</button>
+
+<label>Shorts Script Idea</label>
+<div class="result" id="script">Your script will appear here.</div>
+<button onclick="copyText('script')">Copy Script</button>
+</div>
+
+<p><small>Version 1.0 • AI Assistant Demo</small></p>
+
+<script>
+function generate(){
+ const topic=document.getElementById('topic').value.trim();
+ const channel=document.getElementById('channel').value;
+ const type=document.getElementById('type').value;
+ const audience=document.getElementById('audience').value;
+ if(!topic){alert('Please enter a video topic');return;}
+
+ document.getElementById('title').textContent=
+ topic+' 😱 | Must Watch! #shorts';
+
+ document.getElementById('description').textContent=
+ 'Watch this amazing '+topic+' video!\\n\\nChannel: '+channel+
+ '\\nVideo type: '+type+'\\nAudience: '+audience+
+ '\\n\\nSubscribe for more videos!';
+
+ document.getElementById('tags').textContent=
+ [topic,channel,type,'viral video','YouTube Shorts','trending video'].join(', ');
+
+ document.getElementById('hashtags').textContent=
+ '#Shorts #Viral #Trending #'+channel.replace(/\\s/g,'');
+
+ document.getElementById('keywords').textContent=
+ [topic,channel,'viral shorts','trending shorts','YouTube SEO','video ideas'].join(', ');
+
+ document.getElementById('script').textContent=
+ 'Hook (0-3 sec): Show something surprising about '+topic+
+ '\\nMain scene (3-15 sec): Show the most interesting moment.'+
+ '\\nEnding: Ask viewers to subscribe and comment.';
+
+}
+function copyText(id){
+ const value=document.getElementById(id).textContent;
+ if(navigator.clipboard){
+ navigator.clipboard.writeText(value).then(()=>alert('Copied!'));
+ }else{
+ alert('Please select and copy the text manually.');
+ }
+}
+</script>
+</body>
+</html>
